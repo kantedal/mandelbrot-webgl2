@@ -74,7 +74,7 @@ export default class RenderTarget {
   }
 
   public setWindowSize(sizeX: number, sizeY: number) {
-    this._sizeX = sizeX
-    this._sizeY = sizeY
+    this._sizeX = sizeX;
+    this._sizeY = sizeY;
   }
 }

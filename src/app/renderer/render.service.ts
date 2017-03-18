@@ -19,6 +19,7 @@ export class RenderService {
     window.onresize = () => {
       canvas.nativeElement.width = window.innerWidth;
       canvas.nativeElement.height = window.innerHeight;
+      this._renderer.updateSize();
     };
 
     this.render();

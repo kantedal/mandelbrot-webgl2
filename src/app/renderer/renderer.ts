@@ -33,8 +33,8 @@ export default class Renderer {
     window.onmousemove = (e) => {
       if (this._mouseDown) {
         this._uniforms['u_mousePosition'].value = [
-          (e.clientX - this._mouseStartPosition[0]) * this._uniforms['u_zoom'].value,
-          (e.clientY - this._mouseStartPosition[1]) * this._uniforms['u_zoom'].value,
+          (e.clientX - this._mouseStartPosition[0]) * this._uniforms['u_zoom'].value * 2.0,
+          (e.clientY - this._mouseStartPosition[1]) * this._uniforms['u_zoom'].value * 2.0,
         ];
       }
     };

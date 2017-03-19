@@ -24,9 +24,9 @@ vec2 mandelbrot(vec2 z, vec2 c) {
 
 void main() {
   vec2 windowSizeCompensation = vec2(1.0, u_resolution.y / u_resolution.x);
-  vec2 originalPosition = vec2(2.0 * (v_texCoord)) - vec2(0.5, 0.5);
-  vec2 centerPosition = vec2(-u_centerPosition.x, u_centerPosition.y) / u_resolution - vec2(0.5, 0.5);
-  vec2 mousePosition = vec2(-u_mousePosition.x, u_mousePosition.y) / u_resolution - vec2(0.5, 0.5);
+  vec2 originalPosition = vec2(3.0 * (v_texCoord - vec2(0.5, 0.5)));
+  vec2 centerPosition = vec2(-u_centerPosition.x, u_centerPosition.y) / u_resolution - vec2(0.66, 0.0);
+  vec2 mousePosition = vec2(-u_mousePosition.x, u_mousePosition.y) / u_resolution - vec2(0.0, 0.0);
   vec2 finalPosition = windowSizeCompensation * (u_zoom * originalPosition + centerPosition + mousePosition);
 
   // Mandelbrot: z = z^2 + c
@@ -49,7 +49,5 @@ void main() {
   }
 
   float hue = iterations / 200.0;
-  //hsvToRgb(hue + 0.0, 0.8, 3.0) *
   outColor = mandelbrotExploded ? vec4(vec3(0.3, 0.3, 0.6) * hue, 1)  : vec4(0,0,0, 1.0);
-  //outColor = mandelbrotExploded ?  vec4(vec3(0.6, 0.3, 0.6), 1)  : vec4(0,0,0, 1.0);
 }
